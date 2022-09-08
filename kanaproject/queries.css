@@ -1,0 +1,176 @@
+:root {
+  --input-color: #ffe9ca;
+  --main-color: #fb8987;
+  --border-color: #c9c9c9;
+}
+
+@media (max-width: 1150px) {
+  section {
+    height: 100%;
+    width: 100vw;
+    text-align: center;
+    border-radius: 0px;
+    overflow: hidden;
+  }
+
+  .main-screen {
+    height: 100%;
+  }
+
+  .kana-container {
+    margin-top: 140px;
+  }
+
+  .kana {
+    gap: 15px;
+    font-size: 35px;
+  }
+
+  .kana-tables {
+    height: 100%;
+    padding-top: 100px;
+    transition: all 0.3s ease;
+    overflow-y: scroll;
+  }
+
+  .katakana-table {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .hiragana-table {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .table-active {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+  }
+
+  .tables-header {
+    display: inline-block;
+    text-align: center;
+
+    position: absolute;
+    top: 7%;
+    border-radius: 10px;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: -1;
+  }
+
+  .blob {
+    display: inline-block;
+    background-color: #fff;
+    position: absolute;
+    top: 7%;
+
+    right: 50.5%;
+    height: 25px;
+    width: 90px;
+    border-radius: 7px;
+
+    transition: all 0.4s ease;
+    z-index: -999;
+  }
+
+  .blob-move {
+    transform: translateX(101%);
+  }
+
+  input {
+    font-size: 20px;
+  }
+
+  .syllable {
+    font-size: 25px;
+  }
+
+  td {
+    height: 65px;
+    width: 65px;
+
+    font-size: 18px;
+  }
+
+  .hiragana-table,
+  .katakana-table {
+    position: absolute;
+  }
+
+  h2 {
+    display: none;
+  }
+}
+
+/* checkboxes */
+
+/* Customize the label (the container) */
+.container {
+  display: block;
+
+  position: relative;
+  padding-left: 45px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 30px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 35px;
+  width: 35px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a background */
+.container input:checked ~ .checkmark {
+  background-color: var(--input-color);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 15px;
+  top: 5px;
+  width: 5px;
+  height: 15px;
+  border: solid #000;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}

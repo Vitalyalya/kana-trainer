@@ -1,0 +1,323 @@
+@import url("https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --input-color: #ffe9ca;
+  --main-color: #fb8987;
+  --border-color: #c9c9c9;
+}
+
+body {
+  background-color: var(--main-color);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: Poppins;
+}
+
+section {
+  min-height: -webkit-fill-available;
+
+  position: relative;
+
+  overflow: hidden;
+  display: flex;
+}
+
+.main-screen {
+  position: relative;
+  top: 0;
+  left: 0;
+  min-height: -webkit-fill-available;
+  height: 100vh;
+  width: 100vw;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 50px;
+
+  text-align: center;
+}
+
+.kana-tables {
+  background-color: var(--main-color);
+
+  position: absolute;
+
+  height: 100%;
+  width: 100vw;
+  overflow: auto;
+
+  transform: translateX(100%);
+  transition: all 0.3s ease-in;
+
+  display: flex;
+  margin: 0 auto;
+
+  justify-content: center;
+
+  gap: 150px;
+  text-align: center;
+}
+
+.settings {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--main-color);
+
+  z-index: 11;
+
+  transform: translateX(-100%);
+
+  transition: transform 0.3s ease-in;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+.kana-container {
+  margin-top: 250px;
+  display: flex;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kana-plus-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.kanas {
+  display: flex;
+
+  padding: 0 32px;
+
+  margin: 0 auto;
+
+  justify-content: center;
+  max-width: fit-content;
+}
+
+.kana-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 85px;
+}
+
+.kana {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 20px;
+
+  font-size: 40px;
+  font-weight: bold;
+
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.kana-appear {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+input {
+  min-width: 60px;
+  width: 75%;
+  height: 50px;
+
+  text-align: center;
+
+  font-size: 30px;
+  font-family: Poppins;
+  font-weight: bold;
+
+  border-radius: 10px;
+  border: none;
+
+  background-color: var(--input-color);
+}
+
+input:disabled {
+  opacity: 0.5;
+}
+
+input:focus {
+  outline: none;
+  display: block;
+  box-shadow: 0 0 0 3px var(--border-color);
+  -webkit-appearance: none;
+}
+
+.right-or-wrong {
+  color: transparent;
+  transition: all 0.5s ease;
+  font-size: 30px;
+  display: block;
+  margin-top: 20px;
+}
+
+.counter {
+  display: none;
+  font-size: 40px;
+}
+
+.answer {
+  color: transparent;
+  opacity: 0;
+
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+
+  transition: all 0.5s ease;
+  font-size: 30px;
+  font-weight: bold;
+  animation-name: error;
+}
+
+@keyframes error {
+  0% {
+    transform: translateY(0);
+  }
+
+  20% {
+    transform: translateY(-15px);
+  }
+
+  40% {
+    transform: translateY(0);
+  }
+
+  60% {
+    transform: translateY(-15px);
+  }
+
+  80% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* settings */
+
+h2 {
+  font-size: 40px;
+  margin-bottom: 40px;
+}
+
+.icon-style {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 25px;
+  cursor: pointer;
+}
+
+.tables-icon {
+  right: 25px;
+  height: 33px;
+  width: 33px;
+}
+
+.settings-icon {
+  left: 25px;
+}
+
+.back-icon {
+  left: 25px;
+}
+
+.back-icon-2 {
+  position: fixed;
+  z-index: 111;
+  right: 25px;
+}
+
+.tables-header {
+  display: none;
+  top: 0;
+}
+
+.blob {
+  display: none;
+}
+
+.settings-active {
+  transform: translateX(0);
+}
+
+.tables-active {
+  transform: translateX(0);
+}
+
+.syllable {
+  font-weight: 400;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.empty-box {
+  border: none;
+  height: 40px;
+}
+
+.no-border {
+  border: none;
+}
+
+td {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--input-color);
+  height: 85px;
+  width: 85px;
+
+  border-radius: 20%;
+
+  font-size: 22px;
+}
+
+td:not(:last-child) {
+  margin-right: 15px;
+}
+
+tr {
+  display: flex;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/queries.css" />
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <title>Kana Trainer</title>
+  </head>
+  <body>
+    <section>
+      <div class="settings">
+        <ion-icon
+          class="icon-style back-icon"
+          name="arrow-back-outline"
+        ></ion-icon>
+        <h2>Settings</h2>
+        <!-- <input type="checkbox" class="hiragana" />
+          <span class="checkmark"></span> -->
+        <div class="toggles">
+          <label class="container"
+            >Hiragana
+            <input type="checkbox" class="hiragana" checked="checked" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="container"
+            >Katakana
+            <input type="checkbox" class="katakana" checked="checked" />
+            <span class="checkmark"></span>
+          </label>
+        </div>
+      </div>
+      <div class="main-screen">
+        <ion-icon
+          class="icon-style tables-icon"
+          name="help-circle-outline"
+        ></ion-icon>
+        <ion-icon
+          class="icon-style settings-icon"
+          name="settings-outline"
+        ></ion-icon>
+        <!-- <h1>Kana Trainer</h1> -->
+        <div class="kana-container">
+          <div class="kanas"></div>
+        </div>
+        <span class="right-or-wrong">Correct!</span>
+        <span class="counter">0</span>
+        <span class="answer"></span>
+      </div>
+      <div class="kana-tables">
+        <span class="tables-header">Hiragana | Katakana</span>
+        <div class="blob"></div>
+
+        <ion-icon
+          class="icon-style back-icon-2"
+          name="arrow-forward-outline"
+        ></ion-icon>
+
+        <div class="hiragana-table table-active">
+          <h2>Hiragana</h2>
+          <table class="hiragana-syllables">
+            <tbody>
+              <tr>
+                <td><span class="syllable">あ</span>a</td>
+                <td><span class="syllable">い</span>i</td>
+                <td><span class="syllable">う</span>u</td>
+                <td><span class="syllable">え</span>e</td>
+                <td><span class="syllable">お</span>o</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">か</span>ka</td>
+                <td><span class="syllable">き</span>ki</td>
+                <td><span class="syllable">く</span>ku</td>
+                <td><span class="syllable">け</span>ke</td>
+                <td><span class="syllable">こ</span>ko</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">さ</span>sa</td>
+                <td><span class="syllable">し</span>si</td>
+                <td><span class="syllable">す</span>su</td>
+                <td><span class="syllable">せ</span>se</td>
+                <td><span class="syllable">そ</span>so</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">た</span>ta</td>
+                <td><span class="syllable">ち</span>chi</td>
+                <td><span class="syllable">つ</span>tsu</td>
+                <td><span class="syllable">て</span>te</td>
+                <td><span class="syllable">と</span>to</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">な</span>na</td>
+                <td><span class="syllable">に</span>ni</td>
+                <td><span class="syllable">ぬ</span>nu</td>
+                <td><span class="syllable">ね</span>ne</td>
+                <td><span class="syllable">の</span>no</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">は</span>ha</td>
+                <td><span class="syllable">ひ</span>hi</td>
+                <td><span class="syllable">ふ</span>fu</td>
+                <td><span class="syllable">へ</span>he</td>
+                <td><span class="syllable">ほ</span>ho</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">ま</span>ha</td>
+                <td><span class="syllable">み</span>hi</td>
+                <td><span class="syllable">む</span>mu</td>
+                <td><span class="syllable">め</span>he</td>
+                <td><span class="syllable">も</span>ho</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">や</span>ya</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">ゆ</span>yu</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">よ</span>yo</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">ら</span>ra</td>
+                <td><span class="syllable">り</span>ri</td>
+                <td><span class="syllable">る</span>ru</td>
+                <td><span class="syllable">れ</span>re</td>
+                <td><span class="syllable">ろ</span>ro</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">わ</span>wa</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">を</span>o/wo</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">ん</span>n</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td class="no-border"><span class="syllable"></span></td>
+              </tr>
+
+              <tr>
+                <td class="empty-box"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table>
+            <tbody>
+              <tr>
+                <td><span class="syllable">が</span>ga</td>
+                <td><span class="syllable">ぎ</span>gi</td>
+                <td><span class="syllable">ぐ</span>gu</td>
+                <td><span class="syllable">げ</span>ge</td>
+                <td><span class="syllable">ご</span>go</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">ざ</span>za</td>
+                <td><span class="syllable">じ</span>ji(zi)</td>
+                <td><span class="syllable">ず</span>zu</td>
+                <td><span class="syllable">ぜ</span>ze</td>
+                <td><span class="syllable">ぞ</span>zo</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">だ</span>da</td>
+                <td><span class="syllable">ぢ</span>ji(di)</td>
+                <td><span class="syllable">づ</span>zu(du)</td>
+                <td><span class="syllable">で</span>de</td>
+                <td><span class="syllable">ど</span>do</td>
+              </tr>
+              <tr>
+                <td class="empty-box"></td>
+              </tr>
+              <tr>
+                <td><span class="syllable">ば</span>ba</td>
+                <td><span class="syllable">び</span>bi</td>
+                <td><span class="syllable">ぶ</span>bu</td>
+                <td><span class="syllable">べ</span>be</td>
+                <td><span class="syllable">ぼ</span>bo</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">ぱ</span>pa</td>
+                <td><span class="syllable">ぴ</span>pi</td>
+                <td><span class="syllable">ぷ</span>pu</td>
+                <td><span class="syllable">ぺ</span>pe</td>
+                <td><span class="syllable">ぽ</span>po</td>
+              </tr>
+              <tr>
+                <td class="empty-box"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table>
+            <tbody>
+              <tr>
+                <td><span class="syllable">きゃ</span>kya</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">きゅ</span>kyu</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">きょ</span>kyo</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">しゃ</span>sha</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">しゅ</span>shu</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">しょ</span>sho</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">ちゃ</span>cha</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">ちゅ</span>chu</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">ちょ</span>cho</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">にゃ</span>nya</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">にゅ</span>nyu</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">にょ</span>nyo</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">ひゃ</span>hya</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">ひゅ</span>hyu</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">ひょ</span>hyo</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">みゃ</span>mya</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">みゅ</span>myu</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">みょ</span>myo</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">りゃ</span>rya</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">りゅ</span>ryu</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">りょ</span>ryo</td>
+              </tr>
+              <tr>
+                <td class="empty-box"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table>
+            <tbody>
+              <tr>
+                <td><span class="syllable">ぎゃ</span>gya</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">ぎゅ</span>gyu</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">ぎょ</span>gyo</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">じゃ</span>ja</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">じゅ</span>ju</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">じょ</span>jo</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">びゃ</span>bya</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">びゅ</span>byu</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">びょ</span>byo</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">ぴゃ</span>pya</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">ぴゅ</span>pyu</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">ぴょ</span>pyo</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="katakana-table">
+          <h2>Katakana</h2>
+
+          <table class="katakana-syllables">
+            <tbody>
+              <tr>
+                <td><span class="syllable">ア</span>a</td>
+                <td><span class="syllable">イ</span>i</td>
+                <td><span class="syllable">ウ</span>u</td>
+                <td><span class="syllable">エ</span>e</td>
+                <td><span class="syllable">オ</span>o</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">カ</span>ka</td>
+                <td><span class="syllable">キ</span>ki</td>
+                <td><span class="syllable">ク</span>ku</td>
+                <td><span class="syllable">ケ</span>ke</td>
+                <td><span class="syllable">コ</span>ko</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">サ</span>sa</td>
+                <td><span class="syllable">シ</span>si</td>
+                <td><span class="syllable">ス</span>su</td>
+                <td><span class="syllable">セ</span>se</td>
+                <td><span class="syllable">ソ</span>so</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">タ</span>ta</td>
+                <td><span class="syllable">チ</span>chi</td>
+                <td><span class="syllable">ツ</span>tsu</td>
+                <td><span class="syllable">テ</span>te</td>
+                <td><span class="syllable">ト</span>to</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">ナ</span>na</td>
+                <td><span class="syllable">ニ</span>ni</td>
+                <td><span class="syllable">ヌ</span>nu</td>
+                <td><span class="syllable">ネ</span>ne</td>
+                <td><span class="syllable">ノ</span>no</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">ハ</span>ha</td>
+                <td><span class="syllable">ヒ</span>hi</td>
+                <td><span class="syllable">フ</span>fu</td>
+                <td><span class="syllable">ヘ</span>he</td>
+                <td><span class="syllable">ホ</span>ho</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">マ</span>ha</td>
+                <td><span class="syllable">ミ</span>hi</td>
+                <td><span class="syllable">ム</span>fu</td>
+                <td><span class="syllable">メ</span>he</td>
+                <td><span class="syllable">モ</span>ho</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">ヤ</span>ya</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">ユ</span>yu</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">ヨ</span>yo</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">ラ</span>ra</td>
+                <td><span class="syllable">リ</span>ri</td>
+                <td><span class="syllable">ル</span>ru</td>
+                <td><span class="syllable">レ</span>re</td>
+                <td><span class="syllable">ロ</span>ro</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">ワ</span>wa</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">ヲ</span>o/wo</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">ン</span>n</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td class="no-border"><span class="syllable"></span></td>
+              </tr>
+
+              <tr>
+                <td class="empty-box"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table>
+            <tbody>
+              <tr>
+                <td><span class="syllable">ガ</span>ga</td>
+                <td><span class="syllable">ギ</span>gi</td>
+                <td><span class="syllable">グ</span>gu</td>
+                <td><span class="syllable">ゲ</span>ge</td>
+                <td><span class="syllable">ゴ</span>go</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">ザ</span>za</td>
+                <td><span class="syllable">ジ</span>ji(zi)</td>
+                <td><span class="syllable">ズ</span>zu</td>
+                <td><span class="syllable">ゼ</span>ze</td>
+                <td><span class="syllable">ゾ</span>zo</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">ダ</span>da</td>
+                <td><span class="syllable">ヂ</span>ji(di)</td>
+                <td><span class="syllable">ヅ</span>zu(du)</td>
+                <td><span class="syllable">デ</span>de</td>
+                <td><span class="syllable">ド</span>do</td>
+              </tr>
+              <tr>
+                <td class="empty-box"></td>
+              </tr>
+              <tr>
+                <td><span class="syllable">バ</span>ba</td>
+                <td><span class="syllable">ビ</span>bi</td>
+                <td><span class="syllable">ブ</span>bu</td>
+                <td><span class="syllable">ベ</span>be</td>
+                <td><span class="syllable">ボ</span>bo</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">パ</span>pa</td>
+                <td><span class="syllable">ピ</span>pi</td>
+                <td><span class="syllable">プ</span>pu</td>
+                <td><span class="syllable">ペ</span>pe</td>
+                <td><span class="syllable">ポ</span>po</td>
+              </tr>
+              <tr>
+                <td class="empty-box"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table>
+            <tbody>
+              <tr>
+                <td><span class="syllable">キャ</span>kya</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">キュ</span>kyu</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">キョ</span>kyo</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">シャ</span>sha</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">シュ</span>shu</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">ショ</span>sho</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">チャ</span>cha</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">チュ</span>chu</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">チョ</span>cho</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">ニャ</span>nya</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">ニュ</span>nyu</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">ニョ</span>nyo</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">ヒャ</span>hya</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">ヒュ</span>hyu</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">ヒョ</span>hyo</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">ミャ</span>mya</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">ミュ</span>myu</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">ミョ</span>myo</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">リャ</span>rya</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">リュ</span>ryu</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">リョ</span>ryo</td>
+              </tr>
+              <tr>
+                <td class="empty-box"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table>
+            <tbody>
+              <tr>
+                <td><span class="syllable">ギャ</span>gya</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">ギュ</span>gyu</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">ギョ</span>gyo</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">ジャ</span>ja</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">ジュ</span>ju</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">ジョ</span>jo</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">ビャ</span>bya</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">ビュ</span>byu</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">ビョ</span>byo</td>
+              </tr>
+              <tr>
+                <td><span class="syllable">ピャ</span>pya</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">ピュ</span>pyu</td>
+                <td class="no-border"><span class="syllable"></span></td>
+                <td><span class="syllable">ピョ</span>pyo</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <script src="/constants.js"></script>
+    <script src="/script.js"></script>
+  </body>
+</html>
